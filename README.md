@@ -23,6 +23,6 @@ The paper is under review; the paper link and code will be added after publicati
 
 **Authors:** Muhammad Rizwan, Abdul Rehman Khan, Muhammad Muzaffar Khan, Sibghat Ullah,
 Muhammad Ishfaq Hussain, Waqas Ahmed, Moongu Jeon, Asifullah Khan
-(PIEAS, Islamabad · CUHK · GIST).
+(PIEAS, Islamabad · AITeC, Islamabad · CUHK · GIST).
 
 Page built on the [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template).
