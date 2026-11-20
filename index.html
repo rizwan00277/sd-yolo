@@ -4,20 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="title" content="Cross-Platform Small-Drone Detection via Progressively Enhanced Lightweight YOLO Architectures">
-  <meta name="description" content="One controlled lightweight-module search applied to YOLOv8n, YOLO11n, and YOLO26n and tested on 46 unseen drone videos, giving SD-YOLOv8n, SD-YOLO11n, and SD-YOLO26n.">
+  <meta name="title" content="Cross-Generation Small-Drone Detection with Compact YOLO Modules">
+  <meta name="description" content="One stage-wise lightweight-module path applied to YOLOv8n, YOLO11n, and YOLO26n under a video-disjoint protocol, tested on 46 unseen drone videos.">
   <meta name="keywords" content="small object detection, drone detection, counter-UAV, YOLOv8, YOLO11, YOLO26, lightweight detectors, computer vision">
   <meta name="author" content="Muhammad Rizwan, Abdul Rehman Khan, Muhammad Muzaffar Khan, Sibghat Ullah, Muhammad Ishfaq Hussain, Waqas Ahmed, Moongu Jeon, Asifullah Khan">
   <meta name="robots" content="index, follow">
 
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Pattern Recognition Lab, PIEAS">
-  <meta property="og:title" content="Cross-Platform Small-Drone Detection via Progressively Enhanced Lightweight YOLO Architectures">
+  <meta property="og:title" content="Cross-Generation Small-Drone Detection with Compact YOLO Modules">
   <meta property="og:description" content="One controlled lightweight-module search applied to YOLOv8n, YOLO11n, and YOLO26n and tested on 46 unseen drone videos.">
   <meta property="og:image" content="static/images/fig_main.png">
   <meta name="twitter:card" content="summary_large_image">
 
-  <meta name="citation_title" content="Cross-Platform Small-Drone Detection via Progressively Enhanced Lightweight YOLO Architectures">
+  <meta name="citation_title" content="Cross-Generation Small-Drone Detection with Compact YOLO Modules">
   <meta name="citation_author" content="Rizwan, Muhammad">
   <meta name="citation_author" content="Khan, Abdul Rehman">
   <meta name="citation_author" content="Khan, Muhammad Muzaffar">
@@ -29,7 +29,7 @@
   <meta name="citation_publication_date" content="2026">
   <meta name="theme-color" content="#155e75">
 
-  <title>SD-YOLO: Cross-Platform Small-Drone Detection</title>
+  <title>SD-YOLO: Cross-Generation Small-Drone Detection</title>
 
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,7 +61,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Cross-Platform Small-Drone Detection via Progressively Enhanced Lightweight YOLO Architectures</h1>
+            <h1 class="title is-1 publication-title">Cross-Generation Small-Drone Detection with Compact YOLO Modules</h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">Muhammad Rizwan<sup>1,2</sup>,</span>
               <span class="author-block">Abdul Rehman Khan<sup>1,2,3</sup>,</span>
@@ -143,7 +143,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Detecting drones that occupy only a few pixels requires detectors that are sensitive to small targets yet light enough for deployment, but lightweight modules are usually validated on a single YOLO release with frame-level splits, leaving their transfer across generations and platforms untested. We apply one controlled progressive search to YOLOv8n, YOLO11n, and YOLO26n: a stride-4 P2 head, introduced a priori, followed by one of four attention blocks, four downsampling operators, and four neck designs, each selected by generation-averaged validation AP<sub>small</sub>. The resulting 48 configuration–generation evaluations are performed on a video-disjoint benchmark of 76 videos (117,838 boxes, 73.3% smaller than 32<sup>2</sup> pixels) whose 46 test videos cover seven airframe categories and one GoPro source group. The best test configuration per generation yields SD-YOLOv8n (P2 + CAA), SD-YOLO11n (P2 + ELA + ADown + RepC3-PAN), and SD-YOLO26n (P2 + ELA + ADown + RepGFPN), which raise test mAP<sub>50–95</sub> from 0.115 to 0.142, 0.106 to 0.143, and 0.090 to 0.133 (Wilcoxon <i>p</i>&nbsp;=&nbsp;0.040, <i>p</i>&nbsp;&lt;&nbsp;0.001, <i>p</i>&nbsp;=&nbsp;0.008; post-selection) and AP<sub>small</sub> by 39%, 34%, and 54%. Leave-one-group-out selection picks the same configuration in 22 of 24 folds, with positive gains on held-out groups for all three generations, the YOLO11n gain remaining significant after Holm correction. P2 is the only evaluated module with a positive mean AP<sub>small</sub> change in all three generations, although no module effect survives multiple-testing correction. No significant accuracy difference is detected between the three variants, and SD-YOLO26n reaches it with 2.03&nbsp;M parameters, 18.8% fewer than its baseline.
+            Lightweight modules for small-drone detection are usually tested on a single You Only Look Once (YOLO) release with frame-level data splits, so it is unclear whether they help other YOLO generations. We add a stride-4 (P2) prediction head, followed by an attention block, a downsampling operator, and a neck design chosen stage by stage on validation, to YOLOv8n, YOLO11n, and YOLO26n under one protocol. All 48 configuration–generation combinations (39 distinct trained models) are evaluated on 46 test videos of a video-disjoint Drone-vs-Bird split; 73.3% of all annotated drones, and 66.4% of those in the test videos, are smaller than 32<sup>2</sup> pixels. Among the configurations with the P2 head, the best on validation for YOLO11n and YOLO26n, P2 with efficient local attention (ELA) and ADown downsampling, raises the test mAP<sub>50–95</sub> of YOLO11n and YOLO26n by 26% and 35% and their AP<sub>small</sub> by 44% and 60% (Holm-corrected <i>p</i>&nbsp;≤&nbsp;0.037), with 11–12% fewer parameters; for YOLOv8n a positive mean gain is not established on either metric. The exploratory test-selected configurations reach up to 48% higher mAP<sub>50–95</sub>. Module effects depend on the generation: P2 is the only module with a positive mean AP<sub>small</sub> change in all three, and several attention and neck configurations show sign reversals across generations. Lightweight modules should therefore be re-validated for each YOLO release.
           </p>
         </div>
       </div>
@@ -176,7 +176,7 @@
         <h4>1 · A video-disjoint, cross-platform benchmark</h4>
         <p>Every video sits in exactly one split: 25 for training, 5 for validation, and 46 for testing. The test set covers eight platform groups, including three airframes (custom fixed-wing, Inspire, Solo) that never appear in training.</p>
         <h4>2 · One search path for three generations</h4>
-        <p>A stride-4 P2 head is added to each pretrained detector first. Attention, downsampling, and neck modules are then chosen in turn by validation AP<sub>small</sub> averaged over the three generations, so all three detectors receive the same modifications.</p>
+        <p>A stride-4 P2 head is added to each pretrained detector first. Attention, downsampling, and neck modules are then chosen stage by stage on validation and carried forward identically, so every module is measured in every generation against the same parent. The final model of each generation is chosen on validation alone, without the test videos.</p>
         <h4>3 · Generation-aware conclusions</h4>
         <p>P2 is the only module whose mean small-object gain is positive in all three generations. Attention and neck choices help one generation and hurt another, so published modules should be re-validated for each YOLO release.</p>
       </div>
@@ -234,7 +234,27 @@
 <section class="section" id="results">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Main Results</h2>
-    <p class="has-text-centered lede">Each variant against its own pretrained baseline on the 46 test videos (macro means over videos).</p>
+    <h3 class="title is-5 has-text-centered">Models selected on validation (no test video used)</h3>
+    <p class="has-text-centered lede">The best validation configuration among those with the P2 head, against each pretrained baseline on the 46 test videos (macro means over videos).</p>
+    <div class="table-container">
+      <table class="table is-fullwidth is-hoverable results-table">
+        <thead>
+          <tr><th>Model</th><th>Metric</th><th>Baseline</th><th>Selected</th><th>Δ [95% CI]</th><th>Wins</th><th><i>p</i> (<i>p</i><sub>Holm</sub>)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td rowspan="2">YOLOv8n + P2 + ELA</td><td>mAP<sub>50–95</sub></td><td>0.1154</td><td>0.1221</td><td>+0.0068 [−0.016, +0.030]</td><td>26/45</td><td>0.323 (0.323)</td></tr>
+          <tr><td>AP<sub>small</sub></td><td>0.0886</td><td>0.1083</td><td>+0.0198 [−0.008, +0.047]</td><td>26/39</td><td>0.034 (0.034)</td></tr>
+          <tr class="ours sep"><td rowspan="2">YOLO11n + P2 + ELA + ADown</td><td>mAP<sub>50–95</sub></td><td>0.1060</td><td><b>0.1339</b></td><td>+0.0279 [+0.009, +0.047]</td><td>32/44</td><td>0.004 (0.013)</td></tr>
+          <tr class="ours"><td>AP<sub>small</sub></td><td>0.0821</td><td><b>0.1179</b></td><td>+0.0358 [+0.016, +0.056]</td><td>29/39</td><td>&lt;0.001 (0.002)</td></tr>
+          <tr class="ours sep"><td rowspan="2">YOLO26n + P2 + ELA + ADown</td><td>mAP<sub>50–95</sub></td><td>0.0898</td><td><b>0.1213</b></td><td>+0.0315 [+0.007, +0.057]</td><td>28/46</td><td>0.018 (0.037)</td></tr>
+          <tr class="ours"><td>AP<sub>small</sub></td><td>0.0723</td><td><b>0.1156</b></td><td>+0.0433 [+0.018, +0.070]</td><td>29/39</td><td>&lt;0.001 (0.001)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="is-size-7 has-text-grey">Two-sided Wilcoxon signed-rank test over the test videos, Holm-adjusted across the three generations, with a bootstrap 95% CI. For YOLO11n and YOLO26n the selected model improves mAP<sub>50–95</sub> by 26% and 35% and AP<sub>small</sub> by 44% and 60%, with 11% and 12% fewer parameters (2.32&nbsp;M and 2.20&nbsp;M). For YOLOv8n the CI of the mean gain includes zero, so a positive mean improvement is not established.</p>
+
+    <h3 class="title is-5 has-text-centered" style="margin-top:2.5rem">SD-YOLO variants: best on test (exploratory)</h3>
+    <p class="has-text-centered lede">The highest test mAP<sub>50–95</sub> configuration of each generation. These are chosen on the test videos, so the comparisons are descriptive and are not tested for significance.</p>
 
     <div class="columns variant-cards">
       <div class="column"><div class="vcard v8">
@@ -260,19 +280,19 @@
     <div class="table-container">
       <table class="table is-fullwidth is-hoverable results-table">
         <thead>
-          <tr><th>Model</th><th>Modules</th><th>Params</th><th>GFLOPs</th><th>mAP<sub>50</sub></th><th>mAP<sub>50–95</sub></th><th>AP<sub>small</sub></th><th>Δ mAP<sub>50–95</sub> [95% CI]</th><th><i>p</i></th></tr>
+          <tr><th>Model</th><th>Modules</th><th>Params</th><th>GFLOPs</th><th>mAP<sub>50</sub></th><th>mAP<sub>50–95</sub></th><th>AP<sub>small</sub></th><th>Δ mAP<sub>50–95</sub> [95% CI]</th><th>Wins</th></tr>
         </thead>
         <tbody>
           <tr><td>YOLOv8n</td><td>pretrained</td><td>3.01 M</td><td>8.19</td><td>0.325</td><td>0.115</td><td>0.089</td><td>—</td><td>—</td></tr>
-          <tr class="ours"><td>SD-YOLOv8n</td><td>P2 + CAA</td><td>3.26 M</td><td>12.62</td><td>0.376</td><td>0.142</td><td><b>0.123</b></td><td>+0.027 [+0.007, +0.047]</td><td>0.040</td></tr>
+          <tr class="ours"><td>SD-YOLOv8n</td><td>P2 + CAA</td><td>3.26 M</td><td>12.62</td><td>0.376</td><td>0.142</td><td><b>0.123</b></td><td>+0.027 [+0.007, +0.047]</td><td>27/46</td></tr>
           <tr class="sep"><td>YOLO11n</td><td>pretrained</td><td>2.59 M</td><td>6.44</td><td>0.305</td><td>0.106</td><td>0.082</td><td>—</td><td>—</td></tr>
-          <tr class="ours"><td>SD-YOLO11n</td><td>P2 + ELA + ADown + RepC3-PAN</td><td>3.19 M</td><td>12.66</td><td><b>0.398</b></td><td><b>0.143</b></td><td>0.110</td><td>+0.037 [+0.016, +0.057]</td><td>&lt;0.001</td></tr>
+          <tr class="ours"><td>SD-YOLO11n</td><td>P2 + ELA + ADown + RepC3-PAN</td><td>3.19 M</td><td>12.66</td><td><b>0.398</b></td><td><b>0.143</b></td><td>0.110</td><td>+0.037 [+0.016, +0.057]</td><td>34/44</td></tr>
           <tr class="sep"><td>YOLO26n</td><td>pretrained</td><td>2.50 M</td><td>5.77</td><td>0.259</td><td>0.090</td><td>0.072</td><td>—</td><td>—</td></tr>
-          <tr class="ours"><td>SD-YOLO26n</td><td>P2 + ELA + ADown + RepGFPN</td><td><b>2.03 M</b></td><td><b>6.67</b></td><td>0.353</td><td>0.133</td><td>0.111</td><td>+0.043 [+0.017, +0.071]</td><td>0.008</td></tr>
+          <tr class="ours"><td>SD-YOLO26n</td><td>P2 + ELA + ADown + RepGFPN</td><td><b>2.03 M</b></td><td><b>6.67</b></td><td>0.353</td><td>0.133</td><td>0.111</td><td>+0.043 [+0.017, +0.071]</td><td>29/45</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="is-size-7 has-text-grey">Paired Wilcoxon signed-rank test over the test videos, with a bootstrap 95% CI. The variants are the best test configuration of each generation, so these comparisons are post-selection; the leave-one-group-out analysis selects each variant without seeing the platform group it is scored on.</p>
+    <p class="is-size-7 has-text-grey">Bootstrap 95% CI of the macro-mean difference; Wins counts the test videos that improve, out of the non-tied videos. Because each variant is the best of several configurations on these same videos, the gains need confirmation on a separate test set. Leave-one-group-out selection, which never sees the platform group it is scored on, picks the same configuration in 22 of 24 folds, and its gain stays significant after Holm correction for SD-YOLO11n.</p>
   </div>
 </section>
 
@@ -284,7 +304,7 @@
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item">
           <img src="static/images/fig_final_delta.png" alt="Per-video change from baseline to variant" loading="lazy"/>
-          <h2 class="subtitle has-text-centered">Per-video change from each pretrained baseline to its variant on the 46 test videos.</h2>
+          <h2 class="subtitle has-text-centered">Per-video change from each pretrained baseline to its SD-YOLO variant on the 46 test videos (exploratory, test-selected).</h2>
         </div>
         <div class="item">
           <img src="static/images/fig_generalization.png" alt="Generalization across platform groups" loading="lazy"/>
@@ -341,8 +361,7 @@
       </button>
     </div>
     <pre id="bibtex-code"><code>@article{rizwan2026sdyolo,
-  title   = {Cross-Platform Small-Drone Detection via Progressively Enhanced
-             Lightweight {YOLO} Architectures},
+  title   = {Cross-Generation Small-Drone Detection with Compact {YOLO} Modules},
   author  = {Rizwan, Muhammad and Khan, Abdul Rehman and Khan, Muhammad Muzaffar
              and Ullah, Sibghat and Hussain, Muhammad Ishfaq and Ahmed, Waqas
              and Jeon, Moongu and Khan, Asifullah},
